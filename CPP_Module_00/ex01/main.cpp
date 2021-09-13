@@ -7,32 +7,21 @@ int	main()
 {
 	std::string		command;
 	PhonebookClass	Phonebook;
-	int				i;
 
-	Phonebook.ContactNbr = 0;
+	std::cout << "\e[46;1m\t\t\t\tPHONEBOOK\e[0m\n\n";
 	while (command != "EXIT")
 	{
-		std::cout << "Please provide a command:\n";
+		std::cout << "\e[1m\n\tPlease provide a command:\e[0m\n";
 		std::cin >> command;
 		if (command == "ADD")
-		{
-			Phonebook.Contact[Phonebook.ContactNbr].AddContact(Phonebook.Contact[Phonebook.ContactNbr]);
-			if (Phonebook.ContactNbr < 8)
-				Phonebook.ContactNbr++;
-		}
+			Phonebook.AddContactToPhonebook();
 		else if (command == "SEARCH")
-		{
-			i = 0;
-			while (i < Phonebook.ContactNbr)
-			{
-				Phonebook.Contact[i].DisplayContacts(Phonebook.Contact[i]);
-				i++;
-			}
-		}
+			Phonebook.ShowPhonebook();
 		else if (command == "EXIT")
-			std::cout << "Exiting the phonebook . . .\n";
+			std::cout << "\e[1m\tExiting the phonebook . . .\e[0m\n\n";
 		else
-			std::cout << command << " is not a valid command. Please try again. \n";
+			std::cout << command << "\e[1m is not a valid command. Please try again. \e[0m\n";
 	}
+	std::cout << "\e[46;1m\t\t\t\tBYE ! ! !\e[0m\n";
 	return (0);
 }

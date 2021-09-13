@@ -9,6 +9,10 @@ class	PhonebookClass
 	private:
 		ContactClass	Contact[8];
 		int				ContactNbr;
+	public:
+		PhonebookClass(void);
+		void	AddContactToPhonebook(void);
+		void	ShowPhonebook(void);
 };
 
 #endif

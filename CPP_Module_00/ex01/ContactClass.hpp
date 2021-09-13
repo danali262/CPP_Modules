@@ -12,8 +12,9 @@ class	ContactClass
 		std::string	PhoneNbr;
 		std::string	Secret;
 	public:
-		void			AddContact(ContactClass Contact);
-		void			DisplayContacts(ContactClass Contact);
+		ContactClass(void);
+		void			AddContact();
+		void			DisplayContacts();
 };
 
 #endif
