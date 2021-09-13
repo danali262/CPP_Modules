@@ -1,6 +1,8 @@
 NAME = phonebook
 
-SRC = main.cpp
+SRC =	main.cpp\
+		PhonebookClass.cpp\
+		ContactClass.cpp
 
 OBJS = $(SRC:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra 
