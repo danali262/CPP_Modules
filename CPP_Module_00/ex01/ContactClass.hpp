@@ -13,6 +13,7 @@ class	ContactClass
 		std::string	Secret;
 	public:
 		ContactClass(void);
+		~ContactClass(void);
 		void			AddContact(void);
 		void			DisplayContacts(int index);
 		void			TruncateAttributes(void);

@@ -12,6 +12,7 @@ class	PhonebookClass
 		int				AmountContacts;
 	public:
 		PhonebookClass(void);
+		~PhonebookClass(void);
 		void	AddContactToPhonebook(void);
 		void	ShowPhonebook(void);
 };

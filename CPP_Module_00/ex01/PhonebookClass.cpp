@@ -69,3 +69,5 @@ void	PhonebookClass::ShowPhonebook(void)
 			std::cout << "\e[1mPlease provide a valid index.\e[0m\n";
 	}
 }
+
+PhonebookClass::~PhonebookClass(void){}

@@ -53,3 +53,5 @@ void	ContactClass::DisplayFullInfo(int index)
 	std::cout << std::setw(30) << "\e[1mDarkest secret: \e[0m" << this->Secret << std::endl;
 
 }
+
+ContactClass::~ContactClass(void){}
