@@ -13,8 +13,10 @@ class	ContactClass
 		std::string	Secret;
 	public:
 		ContactClass(void);
-		void			AddContact();
-		void			DisplayContacts();
+		void			AddContact(void);
+		void			DisplayContacts(int index);
+		void			TruncateAttributes(void);
+		void			DisplayFullInfo(int index);
 };
 
 #endif
