@@ -4,7 +4,7 @@ SRC =	tests.cpp\
 		Account.cpp
 
 OBJS = $(SRC:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
 
 CC = clang++
 

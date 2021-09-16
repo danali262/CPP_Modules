@@ -35,6 +35,30 @@ static bool	isNumber(std::string input)
 	return (true);
 }
 
+static int ft_stoi(std::string input)
+{
+	int	nbr;
+	int	sign;
+	int	i;
+
+	nbr = 0;
+	sign = 1;
+	i = 0;
+	if (input[i] == '+' || input[i] == '-')
+	{
+		if (input[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (input[i] >= '0' && input[i] <= '9')
+	{
+		nbr = nbr * 10 + (input[i] - 48);
+		i++;
+	}
+	return(nbr * sign);
+}
+
+
 void	PhonebookClass::ShowPhonebook(void)
 {
 	int	i;
@@ -53,20 +77,20 @@ void	PhonebookClass::ShowPhonebook(void)
 	}
 	while (1)
 	{
-		std::cout << "\e[1mPlease provide the index of the desired entry: \e[0m\n";
+		std::cout << "\033[1mPlease provide the index of the desired entry: \033[0m\n";
 		std::cin >> index;
 		if (isNumber(index))
 		{
-			if (stoi(index) > 0 && stoi(index) < this->AmountContacts)
+			if (ft_stoi(index) >= 0 && ft_stoi(index) < this->AmountContacts)
 			{
-				this->Contact[stoi(index)].DisplayFullInfo(stoi(index));
+				this->Contact[ft_stoi(index)].DisplayFullInfo(ft_stoi(index));
 				break;
 			}
 			else
-				std::cout << "\e[1mPlease provide a valid index.\e[0m\n";
+				std::cout << "\033[1mPlease provide a valid index.\033[0m\n";
 		}
 		else
-			std::cout << "\e[1mPlease provide a valid index.\e[0m\n";
+			std::cout << "\033[1mPlease provide a valid index.\033[0m\n";
 	}
 }
 

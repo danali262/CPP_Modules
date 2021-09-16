@@ -22,10 +22,10 @@ int	main()
 	std::string		command;
 	PhonebookClass	Phonebook;
 
-	std::cout << "\e[46;1m\t\t\t\tPHONEBOOK\e[0m\n\n";
+	std::cout << "\033[46;1m\t\t\t\tPHONEBOOK\033[0m\n\n";
 	while (command != "EXIT")
 	{
-		std::cout << "\e[1m\n\tPlease provide a command (ADD, SEARCH, or EXIT):\e[0m\n";
+		std::cout << "\033[1m\n\tPlease provide a command (ADD, SEARCH, or EXIT):\033[0m\n";
 		std::cin >> command;
 		command = make_command_capital(command);
 		if (command == "ADD")
@@ -33,10 +33,10 @@ int	main()
 		else if (command == "SEARCH")
 			Phonebook.ShowPhonebook();
 		else if (command == "EXIT")
-			std::cout << "\e[1m\tExiting the phonebook . . .\e[0m\n\n";
+			std::cout << "\033[1m\tExiting the phonebook . . .\033[0m\n\n";
 		else
-			std::cout << command << "\e[1m is not a valid command. Please try again. \e[0m\n";
+			std::cout << command << "\033[1m is not a valid command. Please try again. \033[0m\n";
 	}
-	std::cout << "\e[46;1m\t\t\t\tBYE ! ! !\e[0m\n";
+	std::cout << "\033[46;1m\t\t\t\tBYE ! ! !\033[0m\n";
 	return (0);
 }

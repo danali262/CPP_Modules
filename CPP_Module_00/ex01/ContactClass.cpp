@@ -8,17 +8,17 @@ ContactClass::ContactClass(void){}
 
 void	ContactClass::AddContact(void)
 {
-	std::cout << "\e\n\t[1mAdding new contact . . .\e[0m\n\n";
-	std::cout << "\e[1mPlease fill in the following fields.\e[0m\n";
-	std::cout << "\e[1mFirst name: \e[0m";
+	std::cout << "\033\n\t[1mAdding new contact . . .\033[0m\n\n";
+	std::cout << "\033[1mPlease fill in the following fields.\033[0m\n";
+	std::cout << "\033[1mFirst name: \033[0m";
 	std::cin >> this->FirstName;
-	std::cout << "\e[1mLast name: \e[0m";
+	std::cout << "\033[1mLast name: \033[0m";
 	std::cin >> this->LastName;
-	std::cout << "\e[1mNickname: \e[0m";
+	std::cout << "\033[1mNickname: \033[0m";
 	std::cin >> this->NickName;
-	std::cout << "\e[1mPhone number: \e[0m";
+	std::cout << "\033[1mPhone number: \033[0m";
 	std::cin >> this->PhoneNbr;
-	std::cout << "\e[1mDarkest secret: \e[0m";
+	std::cout << "\033[1mDarkest secret: \033[0m";
 	std::cin >> this->Secret;
 }
 
@@ -45,12 +45,12 @@ void	ContactClass::DisplayContacts(int index)
 
 void	ContactClass::DisplayFullInfo(int index)
 {
-	std::cout << std::left << std::setw(30) << "\e[1mIndex: \e[0m" << index << std::endl;
-	std::cout << std::setw(30) << "\e[1mFirst Name: \e[0m" << this->FirstName << std::endl;
-	std::cout << std::setw(30) << "\e[1mLast Name: \e[0m" << this->LastName << std::endl;
-	std::cout << std::setw(30) << "\e[1mNickname: \e[0m" << this->NickName << std::endl;
-	std::cout << std::setw(30) << "\e[1Phone number: \e[0m" << this->PhoneNbr << std::endl;
-	std::cout << std::setw(30) << "\e[1mDarkest secret: \e[0m" << this->Secret << std::endl;
+	std::cout << std::left << std::setw(30) << "\033[1mIndex: \033[0m" << index << std::endl;
+	std::cout << std::setw(30) << "\033[1mFirst Name: \033[0m" << this->FirstName << std::endl;
+	std::cout << std::setw(30) << "\033[1mLast Name: \033[0m" << this->LastName << std::endl;
+	std::cout << std::setw(30) << "\033[1mNickname: \033[0m" << this->NickName << std::endl;
+	std::cout << std::setw(30) << "\033[1Phone number: \033[0m" << this->PhoneNbr << std::endl;
+	std::cout << std::setw(30) << "\033[1mDarkest secret: \033[0m" << this->Secret << std::endl;
 
 }
 
