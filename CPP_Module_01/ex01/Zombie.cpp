@@ -1,14 +1,11 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie()
-{
-	std::cout << "Unnamed zombie is created." << std::endl;
-}
+Zombie::Zombie(){}
 
-void	Zombie::baptize(std::string given_name)
+Zombie::Zombie(std::string given_name)
 {
 	this->_zombiename = given_name;
-	std::cout << "Unnamed zombie is baptized " << this->_zombiename << "." << std::endl;
+	std::cout << this->_zombiename << " is created." << std::endl;
 }
 
 void	Zombie::announce(void)
