@@ -25,26 +25,22 @@ Account::Account(int initial_deposit)
 
 int		Account::getNbAccounts(void)
 {
-	std::cout << "I am in getNbAccounts" << std::endl;
-	return (1);
+	return (this->_nbAccounts);
 }
 
 int		Account::getTotalAmount(void)
 {
-	std::cout << "I am in getTotalAmount" << std::endl;
-	return (2);
+	return (this->_amount);
 }
 
 int		Account::getNbDeposits(void)
 {
-	std::cout << "I am in getNbDeposits" << std::endl;
-	return (3);
+	return (this->_totalNbDeposits);
 }
 
 int		Account::getNbWithdrawals(void)
 {
-	std::cout << "I am in getNbWithdrawals" << std::endl;
-	return (4);
+	return (this->_totalNbWithdrawals);
 }
 
 void	Account::displayAccountsInfos(void)
