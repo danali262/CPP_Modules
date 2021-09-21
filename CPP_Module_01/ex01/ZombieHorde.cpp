@@ -9,7 +9,7 @@ Zombie	*zombieHorde(int N, std::string name)
     i = 0;
     while (i < N)
     {
-        zombie_horde[i] = Zombie(name);
+        zombie_horde[i].baptize(name, i);
         zombie_horde[i].announce();
         i++;
     }

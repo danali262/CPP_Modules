@@ -13,7 +13,7 @@ void	Zombie::baptize(std::string given_name)
 
 void	Zombie::announce(void)
 {
-	std::cout << this->_zombiename << " BraiiiiiiinnnzzzZ. . ." << std::endl;
+	std::cout << "< " << this->_zombiename << " >" << " BraiiiiiiinnnzzzZ. . ." << std::endl;
 }
 
 Zombie::~Zombie(void)
