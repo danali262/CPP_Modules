@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 
 static std::string	make_filename_capital(std::string filename)
@@ -15,41 +16,11 @@ static std::string	make_filename_capital(std::string filename)
 	return (filename);
 }
 
-static std::string	find_and_replace(std::string str_replace, std::string s1, std::string s2)
-{
-	int		i;
-	size_t	j;
-	size_t	k;
-
-	i = 0;
-	k = 0;
-	while (str_replace[i] != '\0')
-	{
-		j = 0;
-		while (str_replace[i] == s1[j])
-		{
-			i++;
-			j++;
-		}
-		if (j == s1.length() - 1)
-		{
-			while (k == s2.length() - 1)
-			{
-				str_replace[i - s1.length() - 1] = s2[k];
-				k++;
-				i--;
-			}
-		}
-		i++;
-	}
-	return(str_replace);
-}
-
 static void	do_replace(std::string filename, std::string s1, std::string s2)
 {
 	std::string filename_replace;
 	std::string filename_capital;
-	std::ifstream inf(filename);
+	std::ifstream inf (filename.c_str());
 	
 	if(!inf)
 	{
@@ -59,20 +30,30 @@ static void	do_replace(std::string filename, std::string s1, std::string s2)
 	filename_capital = make_filename_capital(filename);
 	filename_replace = filename_capital + ".replace";
 
-	std::ofstream outf(filename_replace);
+	std::ofstream outf (filename_replace.c_str());
+
 	if (!outf)
 	{
 		std::cerr << "Replace file could not be opened for writing!" << std::endl;
 		return ;
 	}
-	std::string str_replace;
-	// while(std::getline(inf, str_replace, ' '))
-	while(std::getline(inf, str_replace))
+
+	std::ostringstream	text;
+	std::string	str;
+	size_t	find_pos;
+
+	text << inf.rdbuf();
+	str = text.str();
+	while (1)
 	{
-		std::cout << "String replace is " << str_replace << std::endl;
-		str_replace = find_and_replace(str_replace, s1, s2);
-		outf << str_replace;
+		find_pos = str.find(s1);
+		if (find_pos == std::string::npos)
+			break;
+		str.erase(find_pos, s1.length());
+		str.insert(find_pos, s2);
 	}
+	inf.close();
+	outf << str;
 }
 
 int	main(int argc, char **argv)
