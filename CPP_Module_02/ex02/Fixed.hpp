@@ -15,16 +15,20 @@ class Fixed
 		Fixed(const int input_int);
 		Fixed(const float input_float);
 		Fixed &operator=(const Fixed &f);
-		bool &operator>(const Fixed &f);
-		bool &operator<(const Fixed &f);
-		bool &operator>=(const Fixed &f);
-		bool &operator<=(const Fixed &f);
-		bool &operator==(const Fixed &f);
-		bool &operator!=(const Fixed &f);
+
+		bool operator>(const Fixed &f);
+		bool operator<(const Fixed &f);
+		bool operator>=(const Fixed &f);
+		bool operator<=(const Fixed &f);
+		bool operator==(const Fixed &f);
+		bool operator!=(const Fixed &f);
+
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+
 		int		toInt(void) const;
 		float	toFloat(void) const;
+
 		~Fixed(void);
 };
 
