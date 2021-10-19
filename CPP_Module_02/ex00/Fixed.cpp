@@ -12,7 +12,7 @@ Fixed::Fixed(const Fixed &f)
     this->f_value = f.getRawBits();
 }
 
-Fixed& Fixed::operator= (const Fixed &f)
+Fixed &Fixed::operator=(const Fixed &f)
 {
     std::cout << "Assignation operator called." << std::endl;
     this->f_value = f.getRawBits();
