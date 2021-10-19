@@ -31,6 +31,12 @@ Fixed &Fixed::operator=(const Fixed &f)
     return(*this);
 }
 
+std::ostream &operator<<(std::ostream &out, const Fixed &f)
+{
+    out << f.toFloat();
+    return (out);
+}
+
 int Fixed::getRawBits(void) const
 {
 	return(this->f_value);
@@ -54,10 +60,4 @@ int     Fixed::toInt(void) const
 Fixed::~Fixed(void)
 {
     std::cout << "Destructor called." << std::endl;
-}
-
-std::ostream &operator<<(std::ostream &out, const Fixed &f)
-{
-    out << f.toFloat();
-    return (out);
 }
