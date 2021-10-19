@@ -16,12 +16,27 @@ class Fixed
 		Fixed(const float input_float);
 		Fixed &operator=(const Fixed &f);
 
-		bool operator>(const Fixed &f);
-		bool operator<(const Fixed &f);
-		bool operator>=(const Fixed &f);
-		bool operator<=(const Fixed &f);
-		bool operator==(const Fixed &f);
-		bool operator!=(const Fixed &f);
+		bool	operator>(const Fixed &f);
+		bool	operator<(const Fixed &f);
+		bool	operator>=(const Fixed &f);
+		bool	operator<=(const Fixed &f);
+		bool	operator==(const Fixed &f);
+		bool	operator!=(const Fixed &f);
+
+		Fixed	operator+(const Fixed &f);
+		Fixed	operator-(const Fixed &f);
+		Fixed	operator*(const Fixed &f);
+		Fixed	operator/(const Fixed &f);
+
+		Fixed	operator++(void);
+		Fixed	operator++(int);
+		Fixed	operator--(void);
+		Fixed	operator--(int);
+
+		static Fixed		&min(Fixed &f, Fixed &g);
+		static const Fixed	&min(const Fixed &f, const Fixed &g);
+		static Fixed		&max(Fixed &f, Fixed &g);
+		static const Fixed	&max(const Fixed &f, const Fixed &g);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
