@@ -25,7 +25,7 @@ class ClapTrap
 		unsigned int	getenergyPoints(void) const;
 		unsigned int	getattackDamage(void) const;
 
-		~ClapTrap();
+		virtual ~ClapTrap();
 };
 
 #endif
