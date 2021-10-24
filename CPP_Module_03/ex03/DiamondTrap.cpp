@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(void)
 {
 	this->_name = "";
 	this->_hitPoints = FragTrap::_hitPoints;
@@ -9,7 +9,7 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 	std::cout << "DiamondTrap " << "\t\t" << "with no name was created." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string given_name) : ClapTrap(given_name), ScavTrap(given_name), FragTrap(given_name)
+DiamondTrap::DiamondTrap(std::string given_name)
 {
 	this->_name = given_name + ' ' + ClapTrap::_name;
 	this->_hitPoints = FragTrap::_hitPoints;
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap(std::string given_name) : ClapTrap(given_name), ScavTra
 	std::cout << "DiamondTrap " << "\t\t" << this->getname() << " was created." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &d) : ClapTrap(d), ScavTrap(d), FragTrap(d) 
+DiamondTrap::DiamondTrap(const DiamondTrap &d)
 {
 	*this = d;
 	std::cout	<< "DiamondTrap " << "\t\t" << this->getname() 

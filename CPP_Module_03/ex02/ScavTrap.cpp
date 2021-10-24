@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap()
+ScavTrap::ScavTrap(void)
 {
 	this->_name = "";
 	this->_hitPoints = 100;
@@ -9,7 +9,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	std::cout << "ScavTrap " << "\t\t" << "with no name was created." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string given_name) : ClapTrap(given_name)
+ScavTrap::ScavTrap(std::string given_name)
 {
 	this->_name = given_name;
 	this->_hitPoints = 100;
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(std::string given_name) : ClapTrap(given_name)
 	std::cout << "ScavTrap " << "\t\t" << this->getname() << " was created." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &s) : ClapTrap(s)
+ScavTrap::ScavTrap(const ScavTrap &s)
 {
 	*this = s;
 	std::cout	<< "ScavTrap " << "\t\t" << this->getname() 
