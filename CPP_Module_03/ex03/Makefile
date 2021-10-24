@@ -1,9 +1,10 @@
-NAME = fragtrap
+NAME = diamondtrap
 
 SRC =	main.cpp\
 		ClapTrap.cpp\
 		ScavTrap.cpp\
-		FragTrap.cpp
+		FragTrap.cpp\
+		DiamondTrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 

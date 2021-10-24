@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void)
+FragTrap::FragTrap(void) : ClapTrap()
 {
 	this->_name = "";
 	this->_hitPoints = 100;
@@ -9,7 +9,7 @@ FragTrap::FragTrap(void)
 	std::cout << "FragTrap " << "\t\t" << "with no name was created." << std::endl;
 }
 
-FragTrap::FragTrap(std::string given_name)
+FragTrap::FragTrap(std::string given_name) : ClapTrap(given_name)
 {
 	this->_name = given_name;
 	this->_hitPoints = 100;
@@ -18,7 +18,7 @@ FragTrap::FragTrap(std::string given_name)
 	std::cout << "FragTrap " << "\t\t" << this->getname() << " was created." << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &f)
+FragTrap::FragTrap(const FragTrap &f) : ClapTrap(f)
 {
 	*this = f;
 	std::cout	<< "FragTrap " << "\t\t" << this->getname() 
