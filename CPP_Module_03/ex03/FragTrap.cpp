@@ -10,6 +10,7 @@ FragTrap::FragTrap(void)
 }
 
 FragTrap::FragTrap(std::string given_name)
+{
 	this->_name = given_name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;

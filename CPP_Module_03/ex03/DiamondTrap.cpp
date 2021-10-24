@@ -9,9 +9,9 @@ DiamondTrap::DiamondTrap(void)
 	std::cout << "DiamondTrap " << "\t\t" << "with no name was created." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string given_name)
+DiamondTrap::DiamondTrap(std::string given_name) : ClapTrap(given_name + "_clap_name")
 {
-	this->_name = given_name + ' ' + ClapTrap::_name;
+	this->_name = given_name;
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;
@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &d)
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &d)
 {
-	this->_name = d._name;
+	this->_name = d.given_name;
 	this->_hitPoints = d._hitPoints;
 	this->_energyPoints = d._energyPoints;
 	this->_attackDamage = d._attackDamage;
@@ -78,7 +78,9 @@ void	DiamondTrap::highFivesGuys(void)
 void	DiamondTrap::whoAmI(void)
 {
 	std::cout	<< "DiamondTrap " << "\t\t" 
-				<< "says my name is " << this->getname() << std::endl;
+				// << "says my name is " << this->getDiamondName() 
+				<< " and my clapTrap name is " << this->ClapTrap::getname()
+				<< std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void)

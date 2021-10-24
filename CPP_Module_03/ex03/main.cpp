@@ -8,7 +8,7 @@ int	main(void)
 	ClapTrap	a("Eric ClapTrap");
 	ScavTrap	b("J.D. Scavinger");
 	FragTrap	c("Frag Sinatra");
-	DiamondTrap	d("Mercedes Iman Diamond");
+	DiamondTrap	d("Diamond Foxx");
 
 	std::cout << std::endl;
 	std::cout << "hitpoins of ClapTrap " << a.getname() << " are " << a.gethitPoints() << std::endl;
