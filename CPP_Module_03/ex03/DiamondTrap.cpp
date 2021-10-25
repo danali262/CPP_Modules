@@ -29,6 +29,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &d)
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &d)
 {
 	this->_name = d._name;
+	this->ClapTrap::_name = given_name + "_clap_name";
 	this->_hitPoints = d._hitPoints;
 	this->_energyPoints = d._energyPoints;
 	this->_attackDamage = d._attackDamage;
