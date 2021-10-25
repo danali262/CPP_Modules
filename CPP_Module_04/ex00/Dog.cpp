@@ -16,7 +16,12 @@ Dog  &Dog::operator=(const Dog &d)
 {
     this->type = d.type;
     std::cout   << "Dog was created via Assignment Operator." << std::endl;
-    return (*this)
+    return (*this);
+}
+
+void    Dog::makeSound(void) const
+{
+    std::cout << "Woof woof" << std::endl;
 }
 
 Dog::~Dog(void)

@@ -23,10 +23,20 @@ Animal  &Animal::operator=(const Animal &a)
     this->type = a.type;
     std::cout   << "Animal of type " << this->type
                 << " was created via Assignment Operator." << std::endl;
-    return (*this)
+    return (*this);
+}
+
+std::string     Animal::getType(void) const
+{
+    return(this->type);
+}
+
+void    Animal::makeSound(void) const
+{
+    std::cout << "The sound of an animal . . " << std::endl;
 }
 
 Animal::~Animal(void)
 {
-    std::cout << "Animal of type " << this->type << " was sent to a farm." << std::endl;
+    std::cout << "Animal was sent to a farm." << std::endl;
 }
