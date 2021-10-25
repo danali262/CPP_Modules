@@ -7,7 +7,7 @@ SRC =	main.cpp\
 		DiamondTrap.cpp
 
 OBJS = $(SRC:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
+CFLAGS = -Wall -Werror -Wextra -Wno-shadow -pedantic -std=c++98 
 
 CC = clang++
 
