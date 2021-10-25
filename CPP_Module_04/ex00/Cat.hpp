@@ -1,17 +1,16 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
  
-class   Animal
-{
-    protected:
-        std::string type;
-    public:
-        Animal();
-        Animal(std::string given_type);
-        Animal(const Animal &a);
-        Animal &operator=(const Animal &a);
+#include "Animal.hpp"
 
-        virtual ~Animal();
+class   Cat : virtual public Animal
+{
+    public:
+        Cat(void);
+        Cat(const Cat &c);
+        Cat &operator=(const Cat &c);
+
+        virtual ~Cat();
 };
 
 #endif

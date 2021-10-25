@@ -1,32 +1,25 @@
-#include "Animal.hpp"
+#include "Dog.hpp"
 
-Animal::Animal(void)
+Dog::Dog(void)
 {
-    std::cout << "Animal was created." << std::endl;
+    this->type = "Dog";
+    std::cout << "Dog was created." << std::endl;
 }
 
-Animal::Animal(std::string given_type)
+Dog::Dog(const Dog &d)
 {
-    this->type = given_type;
-    std::cout << "Animal of type " << this->type << " was created." << std::endl;
+    *this = d;
+    std::cout   << "Dog was created via Copy Constructor." << std::endl;
 }
 
-Animal::Animal(const Animal &a)
+Dog  &Dog::operator=(const Dog &d)
 {
-    *this = a;
-    std::cout   << "Animal of type " << this->type
-                << " was created via Copy Constructor." << std::endl;
-}
-
-Animal  &Animal::operator=(const Animal &a)
-{
-    this->type = a.type;
-    std::cout   << "Animal of type " << this->type
-                << " was created via Assignment Operator." << std::endl;
+    this->type = d.type;
+    std::cout   << "Dog was created via Assignment Operator." << std::endl;
     return (*this)
 }
 
-Animal::~Animal(void)
+Dog::~Dog(void)
 {
-    std::cout << "Animal of type " << this->type << " was destroyed." << std::endl;
+    std::cout << "Dog was sent to a farm." << std::endl;
 }

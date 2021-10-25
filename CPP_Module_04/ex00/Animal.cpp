@@ -28,5 +28,5 @@ Animal  &Animal::operator=(const Animal &a)
 
 Animal::~Animal(void)
 {
-    std::cout << "Animal of type " << this->type << " was destroyed." << std::endl;
+    std::cout << "Animal of type " << this->type << " was sent to a farm." << std::endl;
 }

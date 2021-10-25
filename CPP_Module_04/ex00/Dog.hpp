@@ -1,17 +1,17 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
- 
-class   Animal
-{
-    protected:
-        std::string type;
-    public:
-        Animal();
-        Animal(std::string given_type);
-        Animal(const Animal &a);
-        Animal &operator=(const Animal &a);
+#ifndef DOG_HPP
+#define DOG_HPP
 
-        virtual ~Animal();
+#include "Animal.hpp"
+
+class   Dog : virtual public Animal
+{
+    public:
+        Dog(void);
+        Dog(std::string given_type);
+        Dog(const Animal &d);
+        Dog &operator=(const Dog &d);
+
+        virtual ~Dog();
 };
 
 #endif
