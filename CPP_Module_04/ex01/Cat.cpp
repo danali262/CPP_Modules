@@ -3,6 +3,7 @@
 Cat::Cat(void)
 {
     this->type = "Cat";
+    this->b = new Brain;
     std::cout << "Cat was created." << std::endl;
 }
 
@@ -26,5 +27,6 @@ void    Cat::makeSound(void) const
 
 Cat::~Cat(void)
 {
+    delete b;
     std::cout << "Cat was sent to a farm." << std::endl;
 }
