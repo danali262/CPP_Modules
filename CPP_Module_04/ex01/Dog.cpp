@@ -15,8 +15,12 @@ Dog::Dog(const Dog &d)
 
 Dog  &Dog::operator=(const Dog &d)
 {
-    this->type = d.type;
-    this->b = d.b;
+    if (this != &d)
+    {
+        this->~Dog();
+        this->type = d.type;
+		this->b = new Brain();
+    }
     std::cout   << "Dog was created via Assignment Operator." << std::endl;
     return (*this);
 }
@@ -24,6 +28,11 @@ Dog  &Dog::operator=(const Dog &d)
 void    Dog::makeSound(void) const
 {
     std::cout << "Woof woof" << std::endl;
+}
+
+void    Dog::printBrainIdeas(void) const
+{
+    this->b->getFiveIdeas(); 
 }
 
 Dog::~Dog(void)

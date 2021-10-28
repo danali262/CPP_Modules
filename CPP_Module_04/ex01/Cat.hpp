@@ -14,7 +14,7 @@ class   Cat : virtual public Animal
         Cat &operator=(const Cat &c);
 
         void	makeSound(void) const;
-        void    printBrain(void);
+        void    printBrainIdeas(void) const;
 
         virtual ~Cat();
 };

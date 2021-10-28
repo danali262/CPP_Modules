@@ -39,6 +39,14 @@ Brain   &Brain::operator=(const Brain &b)
     return (*this);
 }
 
+void    Brain::getFiveIdeas(void) const
+{
+    int i;
+
+    for (i = 0; i < 5; i++)
+        std::cout << this->ideas[i] << std::endl;
+}
+
 Brain::~Brain(void)
 {
     std::cout << "Brain was destroyed." << std::endl;

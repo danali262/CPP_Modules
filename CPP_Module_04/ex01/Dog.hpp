@@ -15,6 +15,7 @@ class   Dog : virtual public Animal
         Dog &operator=(const Dog &d);
 
         void	makeSound(void) const;
+        void    printBrainIdeas(void) const;
 
         virtual ~Dog();
 };

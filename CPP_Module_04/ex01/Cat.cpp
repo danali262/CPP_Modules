@@ -30,17 +30,10 @@ void    Cat::makeSound(void) const
     std::cout << "Meow meow" << std::endl;
 }
 
-// void    Cat::printBrain(void)
-// {
-//     int i;
-
-//     i = 0;
-//     while (i < 10)
-//     {
-//         std::cout << this->b->ideas[i] << std::endl;
-//         i++;
-//     }
-// }
+void    Cat::printBrainIdeas(void) const
+{
+    this->b->getFiveIdeas();
+}
 
 Cat::~Cat(void)
 {
