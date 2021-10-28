@@ -1,4 +1,4 @@
-NAME = brain
+NAME = abstract
 
 SRC =	main.cpp\
 		Animal.cpp\
@@ -7,7 +7,8 @@ SRC =	main.cpp\
 		Brain.cpp
 
 OBJS = $(SRC:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
+# CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 -g -fsanitize=address 
 
 CC = clang++
 
