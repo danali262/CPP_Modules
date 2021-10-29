@@ -29,4 +29,7 @@ void	AMateria::use(ICharacter &target)
 	// placeholder
 }
 
-AMateria::~AMateria() {}
+AMateria::~AMateria() 
+{
+	std::cout << "AMateria of type " << this->_type << " is destroyed." << std::endl;
+}
