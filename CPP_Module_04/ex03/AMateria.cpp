@@ -1,5 +1,11 @@
 #include "AMateria.hpp"
 
+AMateria::AMateria(void)
+{
+	this->_type = "";
+	std::cout << "AMateria of no type was created." << std::endl;
+}
+
 AMateria::AMateria(std::string const &type)
 {
 	this->_type = type;
@@ -26,7 +32,7 @@ std::string	const &AMateria::getType() const
 
 void	AMateria::use(ICharacter &target)
 {
-	// placeholder
+	std::cout << " is used at " << &target << std::endl;
 }
 
 AMateria::~AMateria() 
