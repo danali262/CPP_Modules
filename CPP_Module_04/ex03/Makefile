@@ -1,13 +1,11 @@
-NAME = abstract
+NAME = materia
 
 SRC =	main.cpp\
-		Animal.cpp\
-		Dog.cpp\
-		Cat.cpp\
-		Brain.cpp
+		AMateria.cpp\
 
 OBJS = $(SRC:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
+# CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 -g -fsanitize=address 
 
 CC = clang++
 
