@@ -31,6 +31,8 @@ int	main(void)
     tmp = src->createMateria("cure");
     me->equip(tmp);
     std::cout << std::endl;
+    me->unequip(2);
+    std::cout << std::endl;
 
     ICharacter *bob = new Character("bob");
 

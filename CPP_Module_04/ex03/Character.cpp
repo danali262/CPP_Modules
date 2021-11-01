@@ -67,17 +67,26 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	this->_inventory[idx] = NULL;
-}
-
-void	Character::use(int idx, ICharacter &target)
-{
 	if (idx < 0 || idx > 3)
 	{
 		std::cout << " * nothing happens . . . *" << std::endl;
 		return ;
 	}
-	this->_inventory[idx]->use(target);
+	std::cout	<< "Unequiping " << this->_inventory[idx]->getType() 
+				<< " position " << idx 
+				<< ". . ." << std::endl;
+	this->_inventory[idx] = NULL;
+}
+
+void	Character::use(int idx, ICharacter &target)
+{
+	if (idx < 0 || idx > 3 || this->_inventory[idx] == NULL)
+	{
+		std::cout << " * nothing happens . . . *" << std::endl;
+		return ;
+	}
+	if (this->_inventory[idx] != NULL)
+		this->_inventory[idx]->use(target);
 }
 
 Character::~Character(void)
