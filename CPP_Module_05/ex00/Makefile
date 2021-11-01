@@ -1,14 +1,15 @@
-NAME = materia
+NAME = doggy
 
 SRC =	main.cpp\
-		AMateria.cpp\
-		Character.cpp\
-		Cure.cpp\
-		Ice.cpp\
-		MateriaSource.cpp
+		Animal.cpp\
+		WrongAnimal.cpp\
+		Dog.cpp\
+		Cat.cpp\
+		WrongCat.cpp
 
 OBJS = $(SRC:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
+
 CC = clang++
 
 all: $(NAME)
