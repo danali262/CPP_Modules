@@ -19,7 +19,7 @@ Cat  &Cat::operator=(const Cat &c)
     {
         this->~Cat();
         this->type = c.type;
-        this->b = new Brain();
+        this->b = new Brain(*c.b);
     }
     std::cout   << "Cat was created via Assignment Operator." << std::endl;
     return (*this);

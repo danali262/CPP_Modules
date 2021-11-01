@@ -19,7 +19,7 @@ Dog  &Dog::operator=(const Dog &d)
     {
         this->~Dog();
         this->type = d.type;
-		this->b = new Brain();
+		this->b = new Brain(*d.b);
     }
     std::cout   << "Dog was created via Assignment Operator." << std::endl;
     return (*this);

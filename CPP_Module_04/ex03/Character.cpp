@@ -37,7 +37,10 @@ Character	&Character::operator=(const Character &c)
 		this->~Character();
 		this->_name = c._name;
 		for (i = 0; i < 4; i++)
-			this->_inventory[i] = NULL;		
+			if (c.getMateria(i) == NULL)
+				this->_inventory[i] = NULL;
+			else
+				this->_inventory[i] = c._inventory[i]->clone();
 	}
 	// std::cout << "Character " << this->_name << "was created via Assignment Operator." << std::endl;
 	return (*this);
@@ -46,6 +49,11 @@ Character	&Character::operator=(const Character &c)
 std::string const	&Character::getName(void) const
 {
 	return(this->_name);
+}
+
+AMateria const		*Character::getMateria(int idx) const
+{
+	return(this->_inventory[idx]);
 }
 
 void	Character::equip(AMateria *m)
@@ -67,6 +75,8 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
+	if (!this->_inventory[idx])
+		return ;
 	if (idx < 0 || idx > 3)
 	{
 		std::cout << " * nothing happens . . . *" << std::endl;
