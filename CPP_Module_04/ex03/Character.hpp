@@ -8,7 +8,7 @@ class Character : public ICharacter
 	private:
 		std::string	_name;
 		AMateria	*_inventory[4];
-		int	_materia_slot;
+		int			_materia_slot;
 	public:
 		Character(void);
 		Character(std::string const &given_name);

@@ -50,13 +50,19 @@ std::string const	&Character::getName(void) const
 
 void	Character::equip(AMateria *m)
 {
+	if (!m)
+		return ;
 	if (this->_materia_slot > 3)
+	{
+		std::cout << "Not enough space to equip materia." << std::endl;
 		return;
+	}
 	else
 	{
 		this->_inventory[this->_materia_slot] = m;
 		this->_materia_slot++;
 	}
+	std::cout << "Materia " << m->getType() << " equiped." << std::endl;
 }
 
 void	Character::unequip(int idx)
@@ -66,7 +72,11 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter &target)
 {
-	// std::cout << "Materia " << this->_inventory[idx] << std::endl;
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << " * nothing happens . . . *" << std::endl;
+		return ;
+	}
 	this->_inventory[idx]->use(target);
 }
 

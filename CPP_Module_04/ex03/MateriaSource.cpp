@@ -40,6 +40,7 @@ void	MateriaSource::learnMateria(AMateria *m)
 		this->_materiArray[this->_memory_pos] = m;
 		this->_memory_pos++;
 	}
+	std::cout << "Materia " << m->getType() << " learned." << std::endl;
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type)
@@ -47,8 +48,9 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 	AMateria	*res;
 	int			i;
 
+
 	i = 0;
-	while (i < 4)
+	while (i < 4 && this->_materiArray[i] != NULL)
 	{
 		if (this->_materiArray[i]->getType() == type)
 		{
@@ -57,8 +59,13 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 		}
 		i++;
 	}
-	if (i == 4)
+	if (i == 4 || this->_materiArray[i] == NULL)
+	{
+		res = NULL;
+		std::cout << "Materia requested not known." << std::endl;
 		return (0);
+	}
+	std::cout << "Materia " << res->getType() << " created." << std::endl;
 	return(res);
 }
 
