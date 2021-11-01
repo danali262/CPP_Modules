@@ -3,12 +3,15 @@
 
 #include "AMateria.hpp"
 
-class Cure : virtual public AMateria
+class Cure : public AMateria
 {
 	public:
-		Cure(std::string const &type);
+		Cure(void);
 		Cure(const Cure &c);
 		Cure &operator=(const Cure &c);
+
+		AMateria	*clone() const;
+		void		use(ICharacter &target);
 
 		~Cure();
 };

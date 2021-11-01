@@ -1,25 +1,25 @@
 #include "Cure.hpp"
 
-Cure::Cure(std::string const &type)
+Cure::Cure(void)
 {
 	this->_type = "cure";
-	std::cout << "Cure of type " << this->_type << " was created." << std::endl;
+	// std::cout << "Cure of type " << this->_type << " was created." << std::endl;
 }
 
 Cure::Cure(const Cure &c)
 {
 	*this = c;
-	std::cout << "Cure was created via Copy Constructor." << std::endl;
+	// std::cout << "Cure was created via Copy Constructor." << std::endl;
 }
 
 Cure		&Cure::operator=(const Cure &c)
 {
 	this->_type = c._type;
-	std::cout << "Cure was created via Assignment Operator." << std::endl;
+	// std::cout << "Cure was created via Assignment Operator." << std::endl;
 	return (*this);
 }
 
-Cure		*Cure::clone() const
+AMateria	*Cure::clone() const
 {
 	Cure	*c;
 
@@ -29,10 +29,10 @@ Cure		*Cure::clone() const
 
 void		Cure::use(ICharacter &target)
 {
-	std::cout << " * heals " << target << "'s wounds *" << std::endl;
+	std::cout << " * heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
 Cure::~Cure()
 {
-	std::cout << "Cure of type " << this->_type << " is destroyed." << std::endl;
+	// std::cout << "Cure of type " << this->_type << " is destroyed." << std::endl;
 }
