@@ -1,79 +1,78 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("")
+Form::Form(void) : f_name(""), f_grade_sign(150), f_grade_exec(150)
 {
-	this->_grade = 150;
-	// std::cout << "Lowest grade Bureaucrat with no name was created." << std::endl;
+	this->f_signed = false;
+	// std::cout << "Lowest grade form with no name was created." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string given_name, int given_grade) : _name(given_name)
+Form::Form(std::string given_name, int given_grade_sign, int given_grade_exec) : f_name(given_name), f_grade_sign(given_grade_sign), f_grade_exec(given_grade_exec)
 {
-	if (given_grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (given_grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+	if (given_grade_sign < 1 || given_grade_exec < 1)
+		throw Form::GradeTooHighException();
+	else if (given_grade_sign > 150 || given_grade_exec > 150)
+		throw Form::GradeTooLowException();
 	else
-		this->_grade = given_grade;
-	// std::cout << "Bureaucrat " << this->_name << " was created." << std::endl;
+		this->f_signed = false;
+	// std::cout << "Form " << this->f_name << " was created." << std::endl;
+	// std::cout << "Signature grade needed: " << this->f_grade_sign << std::endl;
+	// std::cout << "Execution grade needed: " << this->f_grade_exec << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &b) : _name(b._name)
+Form::Form(const Form &f) : f_name(f.f_name), f_grade_sign(f.f_grade_sign), f_grade_exec(f.f_grade_exec)
 {
-	*this = b;
-	// std::cout << "Bureaucrat " << this->_name << " was created via Copy Constructor." << std::endl;
+	*this = f;
+	// std::cout << "Form " << this->f_name << " was created via Copy Constructor." << std::endl;
 }
 
-Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &b)
+Form	&Form::operator=(const Form &f)
 {
-	if (this != &b)
-		this->_grade = b._grade;
-	// std::cout << "Bureaucrat " << this->_name << " was created via Assignment Operator." << std::endl;
+	if (this != &f)
+		this->f_signed = f.f_signed;
+	// std::cout << "Form " << this->f_name << " was created via Assignment Operator." << std::endl;
 	return (*this);
 }
 
-std::string	Bureaucrat::getName(void) const
+std::string	Form::getName(void) const
 {
-	return (this->_name);
+	return (this->f_name);
 }
 
-int			Bureaucrat::getGrade(void) const
+bool		Form::getStatus(void) const
 {
-	return (this->_grade);
+	return (this->f_signed);
 }
 
-int			Bureaucrat::incrementGrade(void)
+int			Form::getGradeSign(void) const
 {
-	this->_grade -= 1;
-	if (this->_grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (this->_grade > 150)
-		throw Bureaucrat::GradeTooLowException();
-	std::cout	<< "Bureaucrat's " << this->_name 
-				<< " grade was incremented to " << this->_grade
-				<< std::endl;
-	return (this->_grade);
+	return (this->f_grade_sign);
 }
 
-int			Bureaucrat::decrementGrade(void)
+int			Form::getGradeExec(void) const
 {
-	this->_grade += 1;
-	if (this->_grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (this->_grade > 150)
-		throw Bureaucrat::GradeTooLowException();
-	std::cout	<< "Bureaucrat's " << this->_name 
-				<< " grade was decremented to " << this->_grade
-				<< std::endl;
-	return (this->_grade);
+	return (this->f_grade_exec);
 }
 
-Bureaucrat::~Bureaucrat(void)
+void		Form::beSigned(Bureaucrat const &b)
 {
-	// std::cout << "Bureaucrat " << this->_name << " was destroyed." << std::endl;
+	if (b.getGrade() > this->f_grade_sign)
+		throw Form::GradeTooLowException();
+	else
+		this->f_signed = true;
+	std::cout << "Form " << this->f_name << " signed by " << b.getName() << "." << std::endl;
 }
 
-std::ostream	&operator<<(std::ostream &out, const Bureaucrat &b)
+Form::~Form(void)
 {
-	out << b.getName() << ", bureaucrat grade " << b.getGrade();
+	// std::cout << "Form " << this->f_name << " was destroyed." << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &out, const Form &f)
+{
+	out << "Form name: " << f.getName() << "\t\t" 
+		<< "Signed: " << f.getStatus() << "\t\t"
+		<< "Required grade for signature: " << f.getGradeSign() << "\t\t"
+		<< "Required grade for execution: " << f.getGradeExec() << std::endl; 
 	return (out);
 }

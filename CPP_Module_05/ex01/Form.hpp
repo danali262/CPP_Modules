@@ -1,7 +1,10 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <iostream>
+#include <exception>
+
+class Bureaucrat;
 
 class Form
 {
@@ -35,10 +38,11 @@ class Form
         };
 
         std::string	getName(void) const;
+        bool        getStatus(void) const;
         int			getGradeSign(void) const;
         int			getGradeExec(void) const;
 
-        void    beSigned(Bureaucrat b);
+        void    beSigned(Bureaucrat const &b);
 
 		~Form(void);
 };
