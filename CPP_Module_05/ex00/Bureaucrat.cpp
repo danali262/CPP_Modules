@@ -8,8 +8,10 @@ Bureaucrat::Bureaucrat(void) : _name("")
 
 Bureaucrat::Bureaucrat(std::string given_name, int given_grade) : _name(given_name)
 {
-	if (given_grade < 1 || given_grade > 150)
-		throw given_grade;
+	if (given_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (given_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = given_grade;
 	std::cout << "Bureaucrat " << this->_name << " was created." << std::endl;
@@ -29,7 +31,43 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &b)
 	return (*this);
 }
 
+std::string	Bureaucrat::getName(void) const
+{
+	return (this->_name);
+}
+
+int			Bureaucrat::getGrade(void) const
+{
+	return (this->_grade);
+}
+
+int			Bureaucrat::incrementGrade(void)
+{
+	this->_grade -= 1;
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	std::cout	<< "Bureaucrat's " << this->_name 
+				<< " grade was incremented to " << this->_grade
+				<< std::endl;
+	return (this->_grade);
+}
+
+int			Bureaucrat::decrementGrade(void)
+{
+	this->_grade += 1;
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	std::cout	<< "Bureaucrat's " << this->_name 
+				<< " grade was decremented to " << this->_grade
+				<< std::endl;
+	return (this->_grade);
+}
+
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat was destroyed." << std::endl;
+	std::cout << "Bureaucrat " << this->_name << " was destroyed." << std::endl;
 }

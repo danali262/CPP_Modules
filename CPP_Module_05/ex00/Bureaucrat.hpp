@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
 
 class Bureaucrat
 {
@@ -14,8 +15,23 @@ class Bureaucrat
         Bureaucrat(const Bureaucrat &b);
         Bureaucrat  &operator=(const Bureaucrat &b);
         
-        void	GradeTooHighException(void);
-        void	GradeTooLowException(void);
+        class   GradeTooHighException : public std::exception
+        {
+            public:
+                const char *what() const throw()
+                {
+                    return ("WARNING : Bureaucrat grade is too high.\n");
+                }
+        };
+        
+        class	GradeTooLowException : public std::exception
+        {
+            public:
+                const char *what() const throw()
+                {
+                    return ("WARNING : Bureaucrat grade is too low.\n");
+                }
+        };
 
         std::string	getName(void) const;
         int			getGrade(void) const;
