@@ -14,12 +14,18 @@ int	main(void)
 		Bureaucrat C ("Bozz", 150);
 
 		// C = A;
+		std::cout << A << std::endl;
+		std::cout << B << std::endl;
+		std::cout << C << std::endl;
 		A.incrementGrade();
 		A.decrementGrade();
 		// B.incrementGrade();
 		B.decrementGrade();
 		C.incrementGrade();
 		C.decrementGrade();
+		std::cout << A << std::endl;
+		std::cout << B << std::endl;
+		std::cout << C << std::endl;
 	}
 	catch (std::exception &e)
 	{
