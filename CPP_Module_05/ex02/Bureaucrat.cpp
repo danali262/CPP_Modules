@@ -81,6 +81,19 @@ void		Bureaucrat::signForm(Form &f)
 	}
 }
 
+void		Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executes " << form.getName() << "." << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << this->_name << " cannot execute " << form.getName() << " because " << e.what();
+	}
+}
+
 Bureaucrat::~Bureaucrat(void)
 {
 	// std::cout << "Bureaucrat " << this->_name << " was destroyed." << std::endl;

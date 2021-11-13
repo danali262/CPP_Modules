@@ -60,10 +60,10 @@ void		Form::beSigned(Bureaucrat const &b)
 		throw Form::GradeTooLowException();
 	else
 		this->f_signed = true;
-	std::cout << "Form " << this->f_name << " signed by " << b.getName() << "." << std::endl;
+	// std::cout << "Form " << this->f_name << " signed by " << b.getName() << "." << std::endl;
 }
 
-void		Form::execute(Bureaucrat const &executor)
+void		Form::execute(Bureaucrat const &executor) const
 {
 	if (this->f_signed == false)
 		throw Form::NotSignedException();

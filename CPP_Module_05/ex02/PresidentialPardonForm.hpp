@@ -8,13 +8,16 @@
 
 class PresidentialPardonForm : public Form
 {
+    private:
+        std::string f_target;
     public:
         PresidentialPardonForm(void);
         PresidentialPardonForm(const std::string &target);
         PresidentialPardonForm(const PresidentialPardonForm &p);
         PresidentialPardonForm  &operator=(const PresidentialPardonForm &p);
 
-        // void    createShrubbery(std::string target);
+        void    execute(Bureaucrat const &executor) const;
+        void    action(void) const;
 
 		~PresidentialPardonForm(void);
 };

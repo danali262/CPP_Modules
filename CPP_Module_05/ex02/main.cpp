@@ -6,22 +6,43 @@ int	main(void)
 {
 	try
 	{
-		// ShrubberyCreationForm Shrub("danifile");
+		ShrubberyCreationForm Shrub("danifile");
 		RobotomyRequestForm Robo("Dani");
+		PresidentialPardonForm Pres("Dani");
 
 		Bureaucrat	B("Buzz", 50);
 		Bureaucrat	C("Buzzcut", 150);
 		Bureaucrat	D("Baas", 1);
-		// PresidentialPardonForm A;
 
-		// Shrub.beSigned(B);
-		// Shrub.execute(B);
-		// Shrub.beSigned(C);
-		// Shrub.execute(C);
+		B.signForm(Shrub);
+		B.executeForm(Shrub);
+		std::cout << std::endl;
+		C.signForm(Shrub);
+		C.executeForm(Shrub);
+		std::cout << std::endl;
+		D.signForm(Shrub);
+		D.executeForm(Shrub);
+		std::cout << std::endl;
 
-		Robo.beSigned(B);
-		Robo.execute(D);
-		// A.execute(B);
+		B.signForm(Robo);
+		B.executeForm(Robo);
+		std::cout << std::endl;
+		C.signForm(Robo);
+		C.executeForm(Robo);
+		std::cout << std::endl;
+		D.signForm(Robo);
+		D.executeForm(Robo);
+		std::cout << std::endl;
+
+		B.signForm(Pres);
+		B.executeForm(Pres);
+		std::cout << std::endl;
+		C.signForm(Pres);
+		C.executeForm(Pres);
+		std::cout << std::endl;
+		D.signForm(Pres);
+		D.executeForm(Pres);
+		std::cout << std::endl;
 	}
 	catch (std::exception &e)
 	{
