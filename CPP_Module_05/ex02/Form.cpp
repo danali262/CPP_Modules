@@ -63,6 +63,14 @@ void		Form::beSigned(Bureaucrat const &b)
 	std::cout << "Form " << this->f_name << " signed by " << b.getName() << "." << std::endl;
 }
 
+void		Form::execute(Bureaucrat const &executor)
+{
+	if (this->f_signed == false)
+		throw Form::NotSignedException();
+	if (executor.getGrade() > this->f_grade_exec)
+		throw Form::GradeTooLowException();
+}
+
 Form::~Form(void)
 {
 	// std::cout << "Form " << this->f_name << " was destroyed." << std::endl;

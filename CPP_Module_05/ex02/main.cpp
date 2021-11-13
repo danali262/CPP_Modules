@@ -6,20 +6,22 @@ int	main(void)
 {
 	try
 	{
-		// ShrubberyCreationForm A;
-		// ShrubberyCreationForm B(A);
-		// ShrubberyCreationForm C;
-		// ShrubberyCreationForm D("home");
-		// RobotomyRequestForm A;
-		// RobotomyRequestForm B(A);
-		// RobotomyRequestForm C;
-		// RobotomyRequestForm D("home");
-		PresidentialPardonForm A;
-		PresidentialPardonForm B(A);
-		PresidentialPardonForm C;
-		PresidentialPardonForm D("home");
+		// ShrubberyCreationForm Shrub("danifile");
+		RobotomyRequestForm Robo("Dani");
 
-		C = A;
+		Bureaucrat	B("Buzz", 50);
+		Bureaucrat	C("Buzzcut", 150);
+		Bureaucrat	D("Baas", 1);
+		// PresidentialPardonForm A;
+
+		// Shrub.beSigned(B);
+		// Shrub.execute(B);
+		// Shrub.beSigned(C);
+		// Shrub.execute(C);
+
+		Robo.beSigned(B);
+		Robo.execute(D);
+		// A.execute(B);
 	}
 	catch (std::exception &e)
 	{

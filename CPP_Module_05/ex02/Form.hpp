@@ -37,14 +37,25 @@ class Form
                 }
         };
 
+        class   NotSignedException : public std::exception
+        {
+            public:
+                const char *what() const throw()
+                {
+                    return ("WARNING : Form not signed.\n");
+                }
+        };
+
         std::string	getName(void) const;
         bool        getStatus(void) const;
         int			getGradeSign(void) const;
         int			getGradeExec(void) const;
 
         void    beSigned(Bureaucrat const &b);
+        void    execute(Bureaucrat const &executor);
+        virtual void    action(void) = 0;
 
-		~Form(void);
+		virtual ~Form(void);
 };
 
 std::ostream	&operator<<(std::ostream &out, const Form &f);

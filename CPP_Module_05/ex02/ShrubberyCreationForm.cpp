@@ -2,11 +2,13 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : Form("ShrubberyCreationForm", 145, 137)
 {
+	this->f_target = "";
 	std::cout << "ShrubberyCreationForm with no target was created." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form("ShrubberyCreationForm", 145, 137) 
 {
+	this->f_target = target;
 	std::cout << "ShrubberyCreationForm with target " << target << " was created." << std::endl;
 }
 
@@ -23,7 +25,34 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-// void	ShrubberyCreationForm::createShrubbery(std::string &target) const
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
+{
+	this->Form::execute(executor);
+	this->action();
+}
+
+void	ShrubberyCreationForm::action(void)
+{
+	std::string file_name;
+	file_name = this->f_target + "_shrubbery"; 
+
+	std::ofstream outf(file_name.c_str());
+	if (!outf)
+		std::cerr << "File could not be opened for writing." << std::endl;
+
+	outf <<      
+		"					ccee88oo               " << std::endl <<
+		"				    C8O8O8Q8PoOb o8oo          " << std::endl <<
+		"				   dOB69QO8PdUOpugoO9bD        " << std::endl <<
+		"				 CgggbU8OU qOp qOdoUOdcb       " << std::endl <<
+		"				   6OuU  /p u gcoUodpP         " << std::endl <<
+		"					\\/  /douUP              " << std::endl <<
+		"					 \\///                   " << std::endl <<
+		"					 |||                    " << std::endl <<
+		" 					 |||                    " << std::endl <<
+		"					 |||                    " << std::endl <<
+		"				     ....|||....                " << std::endl;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
