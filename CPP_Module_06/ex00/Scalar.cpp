@@ -69,10 +69,15 @@ float	Scalar::toFloat(void) const
 	str = this->s_value;
 	c_string = str.c_str();
 	d = this->toDouble();
-	if ((d == 0 && this->s_value.length() != 1) || d > FLT_MAX)
+	if (d == 0 && this->s_value.length() != 1)
 		throw Scalar::ImpossibleException();
-	if (c_string[0] != '-' && d < FLT_MIN)
-		throw Scalar::ImpossibleException();
+	if (str != "0" && str != "nan" && str != "inf" && str != "-inf" && str != "inff")
+	{
+		if (d > FLT_MAX)
+			throw Scalar::ImpossibleException();
+		if (c_string[0] != '-' && d < FLT_MIN)
+			throw Scalar::ImpossibleException();
+	}
 	return(static_cast<float>(d));
 }
 
@@ -85,10 +90,15 @@ double	Scalar::toDouble(void) const
 	str = this->s_value;
 	c_string = str.c_str();
 	d = atof(c_string);
-	if ((d == 0 && this->s_value.length() != 1) || d > DBL_MAX)
+	if (d == 0 && this->s_value.length() != 1)
 		throw Scalar::ImpossibleException();
-	if (c_string[0] != '-' && d < DBL_MIN)
-		throw Scalar::ImpossibleException();
+	if (str != "0" && str != "nan" && str != "inf" && str != "-inf" && str != "inff")
+	{
+		if (d > DBL_MAX)
+			throw Scalar::ImpossibleException();
+		if (c_string[0] != '-' && d < DBL_MIN)
+			throw Scalar::ImpossibleException();
+	}
 	return (d);
 }
 
