@@ -9,8 +9,7 @@ SRC =	main.cpp\
 		Intern.cpp\
 
 OBJS = $(SRC:.cpp=.o)
-# CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 -g -fsanitize=address 
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c++98 
 
 CC = clang++
 
