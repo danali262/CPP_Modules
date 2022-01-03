@@ -29,6 +29,16 @@ void	Span::addNumber(int nbr)
 	this->_pos++;
 }
 
+void	Span::addNumber(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end)
+{
+	unsigned int	size;
+
+	size = std::distance(begin, end);
+	if (size > this->_size)
+		throw NoSpaceException();
+	this->_vect.insert(this->_vect.end(), begin, end);
+}
+
 unsigned int		Span::shortestSpan(void) const
 {
 	if (this->_size <= 1)
