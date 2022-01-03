@@ -17,6 +17,8 @@ class Span
 		Span	&operator=(const Span &s);
 
 		void	addNumber(int nbr);
+		unsigned int		shortestSpan(void) const;
+		unsigned int		longestSpan(void) const;
 
 		class NoSpaceException : public std::exception
 		{
@@ -24,6 +26,15 @@ class Span
 				const char *what() const throw()
 				{
 					return ("Not enough space in the vector to add number.\n");
+				}
+		};
+
+		class NoSpanException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return ("No span to be found in vector.\n");
 				}
 		};
 
