@@ -1,4 +1,4 @@
-# CPP_Modules [WIP]
+# CPP_Modules
 
 This repo consists of 8 Modules of an introduction to C++ and OOP.
 
